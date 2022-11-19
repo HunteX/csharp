@@ -20,7 +20,7 @@ public class DbWriter
     /// </summary>
     /// <param name="tableName"></param>
     /// <param name="row"></param>
-    public async Task AddRow(string tableName, Dictionary<string, object> row)
+    public async Task AddRowAsync(string tableName, Dictionary<string, object> row)
     {
         PrepareKeysValuesAndParams(row, out string keys, out string values, out Dictionary<string, object> queryParams);
 

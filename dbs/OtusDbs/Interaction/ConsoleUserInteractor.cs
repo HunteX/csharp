@@ -24,7 +24,7 @@ public class ConsoleUserInteractor
     /// <summary>
     /// Отображает главное меню
     /// </summary>
-    public async Task ShowMainMenu()
+    public async Task ShowMainMenuAsync()
     {
         bool showInfo = true;
 
@@ -47,7 +47,7 @@ public class ConsoleUserInteractor
                     DKeyPressed();
                     break;
                 case ConsoleKey.A:
-                    var tables = await _reader.GetTablesData();
+                    var tables = await _reader.GetTablesDataAsync();
 
                     ShowCreateTableRowMenu(tables);
                     break;
