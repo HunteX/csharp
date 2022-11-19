@@ -19,10 +19,10 @@ public class DbReader
     /// Возвращает из БД таблицы с данными
     /// </summary>
     /// <returns></returns>
-    public async Task<List<DbTable>> GetTablesData()
+    public async Task<List<DbTable>> GetTablesDataAsync()
     {
         var result = new List<DbTable>();
-        var tables = await GetTables();
+        var tables = await GetTablesAsync();
 
         await using var sqlConnection = new NpgsqlConnection(_connectionString);
 
@@ -66,7 +66,7 @@ public class DbReader
     /// Возвращает из БД имена таблиц
     /// </summary>
     /// <returns></returns>
-    public async Task<List<string>> GetTables()
+    public async Task<List<string>> GetTablesAsync()
     {
         await using var sqlConnection = new NpgsqlConnection(_connectionString);
 

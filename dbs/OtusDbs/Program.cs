@@ -20,22 +20,22 @@ interceptor.AnyKeyPressed += () => { printer.PrintInfo(); };
 
 interceptor.TKeyPressed += async () =>
 {
-    var tables = await reader.GetTables();
+    var tables = await reader.GetTablesAsync();
 
     printer.PrintTableList(tables);
 };
 
 interceptor.DKeyPressed += async () =>
 {
-    var tablesWithData = await reader.GetTablesData();
+    var tablesWithData = await reader.GetTablesDataAsync();
 
     printer.PrintTablesWithData(tablesWithData);
 };
 
 interceptor.TableRowAdded += async (tableName, rowData) =>
 {
-    await writer.AddRow(tableName, rowData);
+    await writer.AddRowAsync(tableName, rowData);
     printer.PrintRowAddedSuccessfully(tableName);
 };
 
-await interceptor.ShowMainMenu();
+await interceptor.ShowMainMenuAsync();
